@@ -1,0 +1,55 @@
+sfWindguruPlugin plugin
+======================
+
+The `sfWindguruPlugin` is an interface to windguru.cz website. It allows displaying
+forecasts fetched from windguru website. Really simple to use.
+By default sfFileCache is used to keep forecast cache for 15 mins.
+
+
+Screenshot
+----------
+
+
+Prerequisites
+-------------
+
+This plugin for symfony 1.3/1.4 depends on [sfWebrowserPlugin](/plugins/sfWebbrowserPlugin)
+to get data from windguru serwer. Also windguru.cz requires registration on it's site to get
+user id and spot code for each surfing spot one want to display forecasts on. 
+Plugin should work with any symfony version as it is just simple php library
+
+Follow this link [http://www.windguru.cz/pl/help_index.php?sec=distr] to get more info on registering.
+
+
+Installation
+------------
+
+1 - Install the plugin.
+
+The easiest way to install `sfWindguruPlugin` is to use the symfony command line:
+
+    > php symfony plugin:install sfWindguruPlugin
+
+Alternatively, if you don't have PEAR installed, you can fork the latest package
+from my git hub https://github.com/zdanozdan/sfWindguruPlugin
+
+3 - Clear the cache to enable the autoloading to find the new classes:
+
+    > php symfony cc
+
+2 - Write the action code
+
+get user code, spot id and spot code from windguru website and use them in any place.
+
+    > public function executeWindguru(sfWebRequest $request)
+    > {
+    >    $b = new sfWindguruBrowser();
+    >	 $b->getWindguru($user_code,$spot_id,$spot_code);
+    >	 $rsp = $b->getResponseText();
+
+    > return $this->renderText($rsp);
+    > }
+
+CODING
+----
+ If you want to contribue please fork from github and give me a push.
