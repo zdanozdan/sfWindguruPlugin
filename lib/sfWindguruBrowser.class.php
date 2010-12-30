@@ -1,4 +1,4 @@
-<?
+<?php
 /*
  * This file is part of the sfWindguruPlugin package.
  * Tomasz Zdanowski <tomasz@mikran.pl>
@@ -13,6 +13,7 @@
  * @author     Tomasz Zdanowski <tomasz@mikran.pl>
  * @version    0.1
  */
+
 class sfWindguruBrowser extends sfWebBrowser
 {
   public function __construct($defaultHeaders = array(), $adapterClass = null, $adapterOptions = array())
